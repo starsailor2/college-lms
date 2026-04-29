@@ -59,10 +59,10 @@ export function AppLayout() {
         <Sidebar className="border-r border-border bg-sidebar font-sans">
           <SidebarHeader className="p-6 pb-8">
             <div className="flex items-center gap-3 px-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold shadow-sm ring-1 ring-primary/20">
-                L
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl overflow-hidden bg-white shadow-sm ring-1 ring-border shrink-0">
+                <img src="/iith-logo.png" alt="IITH" className="h-9 w-9 object-contain" />
               </div>
-              <span className="font-bold text-xl tracking-tight text-foreground">Lumina LMS</span>
+              <span className="font-bold text-xl tracking-tight text-foreground">IITH LMS</span>
             </div>
           </SidebarHeader>
           <SidebarContent className="px-4">

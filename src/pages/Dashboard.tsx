@@ -4,10 +4,12 @@ import { BookOpen, Users, Clock, Loader2, ArrowRight, Sparkles, Video, PlayCircl
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
+import { useNavigate } from "react-router-dom"
 
 export function Dashboard() {
   const { user, courses, classes, assignments } = useStore()
   const isProf = user?.role === 'professor'
+  const navigate = useNavigate()
 
   if (!user) return null
 
@@ -22,7 +24,7 @@ export function Dashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        <Card className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md transition-shadow">
+        <Card onClick={() => navigate('/courses')} className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer">
           <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
             <CardTitle className="text-[#64748B] text-xs font-medium uppercase tracking-tight">Total Courses</CardTitle>
             <span className="bg-green-50 text-green-600 text-[10px] px-1.5 py-0.5 rounded font-bold">+12%</span>
@@ -32,7 +34,7 @@ export function Dashboard() {
             <p className="text-[10px] text-[#94A3B8] mt-1">Active enrollments</p>
           </CardContent>
         </Card>
-        <Card className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md transition-shadow">
+        <Card onClick={() => navigate('/schedule')} className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer">
           <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
             <CardTitle className="text-[#64748B] text-xs font-medium uppercase tracking-tight">Upcoming Classes</CardTitle>
             <span className="bg-orange-50 text-orange-600 text-[10px] px-1.5 py-0.5 rounded font-bold">Urgent</span>
@@ -42,14 +44,14 @@ export function Dashboard() {
             <p className="text-[10px] text-[#94A3B8] mt-1">Scheduled for today</p>
           </CardContent>
         </Card>
-        <Card className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md transition-shadow">
+        <Card onClick={() => navigate('/assignments')} className="border-border shadow-sm flex flex-col justify-between h-32 hover:shadow-md hover:border-primary/30 transition-all cursor-pointer">
           <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
             <CardTitle className="text-[#64748B] text-xs font-medium uppercase tracking-tight">Pending Assignments</CardTitle>
             <span className="text-[#22C55E] flex items-center gap-1"><Sparkles className="w-3 h-3" /></span>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold text-foreground">
-              {assignments.filter(a => isProf ? a.status === 'submitted' : a.status === 'pending').length}
+              {assignments.length}
             </div>
             <p className="text-[10px] text-[#94A3B8] mt-1">Smart-Automation Priority</p>
           </CardContent>
@@ -146,8 +148,8 @@ export function Dashboard() {
              ))}
              
              <div className="mt-auto pt-6">
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold tracking-wide text-xs">
-                   View Full Analytics
+                <Button onClick={() => navigate('/grades')} className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold tracking-wide text-xs gap-2">
+                   View Full Analytics <ArrowRight className="w-3.5 h-3.5" />
                 </Button>
              </div>
           </CardContent>

@@ -28,14 +28,11 @@ export function Login() {
       <Card className="w-full max-w-[420px] shadow-2xl shadow-primary/5 border-border rounded-2xl relative z-10 bg-white">
         <CardHeader className="space-y-3 text-center pb-8 pt-10">
           <div className="flex justify-center mb-2">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#0F172A] text-white shadow-lg relative">
-              <span className="font-bold text-3xl">L</span>
-              <div className="absolute -right-2 -top-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                 <Sparkles className="w-3 h-3 text-primary-foreground" />
-              </div>
+            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-lg border border-border relative overflow-hidden">
+              <img src="/iith-logo.png" alt="IIT Hyderabad" className="h-16 w-16 object-contain" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold tracking-tight text-[#0F172A]">Lumina LMS</CardTitle>
+          <CardTitle className="text-2xl font-bold tracking-tight text-[#0F172A]">IITH LMS</CardTitle>
           <CardDescription className="text-muted-foreground text-xs font-medium uppercase tracking-widest pt-1">
             Hybrid Intelligent Learning Platform
           </CardDescription>

@@ -232,12 +232,7 @@ export function Assignments() {
         {isProf && <Button className="shrink-0 gap-2 bg-amber-600 hover:bg-amber-700" onClick={() => setCreateOpen(true)}><PlusCircle className="w-4 h-4" />Create Assignment</Button>}
       </div>
 
-      {!isProf && (
-        <div className="flex items-center gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl">
-          <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0"><ClipboardList className="w-5 h-5 text-amber-600" /></div>
-          <div><p className="font-bold text-sm text-amber-800">Assignment Weight: 10% of Final Grade</p><p className="text-xs text-amber-700">Assignments are low-stakes continuous evaluation. No timer — complete at your own pace before the deadline.</p></div>
-        </div>
-      )}
+
 
       <div className="grid gap-4">
         {assignments.map(a => {
@@ -258,7 +253,6 @@ export function Assignments() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap mb-1">
                       <Badge variant="outline" className="text-[10px] font-bold uppercase bg-amber-50 border-amber-200 text-amber-700">{isMCQ ? '📝 MCQ' : '📎 PDF'}</Badge>
-                      {a.weightage && <Badge variant="outline" className="text-[10px] font-bold bg-orange-50 border-orange-200 text-orange-700">{a.weightage}% of grade</Badge>}
                       {isSubmitted && <Badge className="text-[10px] bg-green-100 text-green-700 hover:bg-green-100">✓ Submitted</Badge>}
                       {inProgress && <Badge className="text-[10px] bg-blue-100 text-blue-700 hover:bg-blue-100">In Progress</Badge>}
                       {!isSubmitted && !inProgress && <Badge className="text-[10px] bg-secondary text-muted-foreground hover:bg-secondary">Not Started</Badge>}
@@ -280,7 +274,7 @@ export function Assignments() {
                 )}
                 {isProf && <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1"><Users className="w-3.5 h-3.5" />{responseCount} submission{responseCount !== 1 ? 's' : ''}</div>}
               </CardContent>
-              <CardFooter className="pt-0 pb-4 gap-2">
+              <CardFooter className="pt-3 pb-4 gap-2">
                 {isProf ? (
                   <Button variant="outline" size="sm" className="gap-1.5 text-xs font-semibold" onClick={() => setResponsesFor(a)}><Users className="w-3.5 h-3.5" />View Responses<ChevronRight className="w-3.5 h-3.5 ml-auto" /></Button>
                 ) : isMCQ ? (
@@ -290,7 +284,7 @@ export function Assignments() {
                         {inProgress ? '▶ Continue Assignment' : isOverdue ? 'Deadline Passed' : '▶ Start Assignment'}
                       </Button>
                     ) : (
-                      <Button variant="outline" size="sm" className="text-xs" onClick={() => navigate(`/assignments/${a.id}/take`)}>View Results</Button>
+                      <Button variant="outline" size="sm" className="text-xs font-semibold" onClick={() => navigate(`/assignments/${a.id}/take`)}>View Results & Review</Button>
                     )}
                   </>
                 ) : (
@@ -300,8 +294,8 @@ export function Assignments() {
                         <Upload className="w-3.5 h-3.5" />Submit File
                       </Button>
                     )}
-                    {isSubmitted && <Badge className="bg-green-100 text-green-700 hover:bg-green-100 text-xs"><CheckCircle2 className="w-3.5 h-3.5 mr-1" />Submitted</Badge>}
-                    {isOverdue && !isSubmitted && <Badge className="bg-red-100 text-red-600 hover:bg-red-100 text-xs"><AlertCircle className="w-3.5 h-3.5 mr-1" />Deadline Passed</Badge>}
+                    {isSubmitted && <span className="flex items-center gap-1.5 text-xs font-semibold text-green-700"><CheckCircle2 className="w-3.5 h-3.5" />Submitted</span>}
+                    {isOverdue && !isSubmitted && <span className="flex items-center gap-1.5 text-xs font-semibold text-red-600"><AlertCircle className="w-3.5 h-3.5" />Deadline Passed</span>}
                   </>
                 )}
               </CardFooter>

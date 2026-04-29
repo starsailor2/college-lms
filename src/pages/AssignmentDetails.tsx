@@ -204,9 +204,11 @@ export function AssignmentDetails() {
                 {(!studentSubmission || studentSubmission.status === 'pending') && (
                   <div className="space-y-4">
                     <div className="flex flex-col gap-2">
-                      <Button variant="outline" onClick={() => studentFileInputRef.current?.click()} className="w-full justify-start text-muted-foreground font-normal bg-muted/50 border-dashed border-2 h-20 hover:bg-muted/80">
-                        <Paperclip className="h-4 w-4 mr-2" />
-                        {submissionFileName ? <span className="text-foreground font-medium">{submissionFileName}</span> : "Click to upload submission file (PDF, ZIP, etc)"}
+                      <Button variant="outline" onClick={() => studentFileInputRef.current?.click()} className="w-full flex-col gap-1.5 text-muted-foreground font-normal bg-muted/50 border-dashed border-2 h-20 hover:bg-muted/80">
+                        <Paperclip className="h-4 w-4" />
+                        {submissionFileName
+                          ? <span className="text-foreground font-medium text-xs text-center break-all">{submissionFileName}</span>
+                          : <span className="text-xs text-center leading-snug">Click to upload<br/>PDF, ZIP, or other files</span>}
                       </Button>
                       <input type="file" ref={studentFileInputRef} className="hidden" onChange={handleStudentFileChange} />
                       {submissionFileName && (
