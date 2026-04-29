@@ -13,7 +13,7 @@ import {
   SidebarInset,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { LayoutDashboard, BookOpen, CalendarPlus, ClipboardList, UserCheck, GraduationCap, LogOut, Video } from "lucide-react"
+import { LayoutDashboard, BookOpen, CalendarPlus, ClipboardList, UserCheck, GraduationCap, LogOut, Video, ClipboardCheck } from "lucide-react"
 import { useStore } from "@/store"
 import { Navigate, NavLink, Outlet, useNavigate } from "react-router-dom"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -32,6 +32,7 @@ export function AppLayout() {
     { title: "My Courses", url: "/courses", icon: BookOpen },
     { title: "Class Setup", url: "/schedule", icon: Video },
     { title: "Assessments", url: "/assignments", icon: ClipboardList },
+    { title: "Quizzes", url: "/quizzes", icon: ClipboardCheck },
     { title: "Attendance", url: "/attendance", icon: UserCheck },
     { title: "Gradebook", url: "/grades", icon: GraduationCap },
   ]
@@ -40,6 +41,7 @@ export function AppLayout() {
     { title: "Overview", url: "/dashboard", icon: LayoutDashboard },
     { title: "Courses", url: "/courses", icon: BookOpen },
     { title: "Assignments", url: "/assignments", icon: ClipboardList },
+    { title: "Quizzes", url: "/quizzes", icon: ClipboardCheck },
     { title: "Attendance", url: "/attendance", icon: UserCheck },
     { title: "Grades", url: "/grades", icon: GraduationCap },
   ]

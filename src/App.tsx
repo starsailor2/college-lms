@@ -6,8 +6,12 @@ import { Courses } from './pages/Courses';
 import { ScheduleClass } from './pages/ScheduleClass';
 import { Assignments } from './pages/Assignments';
 import { AssignmentDetails } from './pages/AssignmentDetails';
+import { AssignmentTake } from './pages/AssignmentTake';
 import { Attendance } from './pages/Attendance';
 import { Grades } from './pages/Grades';
+import { Quizzes } from './pages/Quizzes';
+import { QuizTake } from './pages/QuizTake';
+import { QuizResults } from './pages/QuizResults';
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Toaster } from 'sonner';
 
@@ -24,8 +28,13 @@ export default function App() {
             <Route path="schedule" element={<ScheduleClass />} />
             <Route path="assignments" element={<Assignments />} />
             <Route path="assignments/:id" element={<AssignmentDetails />} />
+            <Route path="assignments/:id/take" element={<AssignmentTake />} />
             <Route path="attendance" element={<Attendance />} />
             <Route path="grades" element={<Grades />} />
+            <Route path="quizzes" element={<Quizzes />} />
+            <Route path="quizzes/:quizId/take" element={<QuizTake />} />
+            <Route path="quizzes/:quizId/results" element={<QuizResults />} />
+            <Route path="quizzes/:quizId/results/:attemptId" element={<QuizResults />} />
           </Route>
         </Routes>
       </BrowserRouter>

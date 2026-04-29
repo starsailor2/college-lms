@@ -39,10 +39,8 @@ export function Grades() {
         })
       })
     }
-  })
+    })
 
-    }
-  })
 
   const navigate = useNavigate()
 
