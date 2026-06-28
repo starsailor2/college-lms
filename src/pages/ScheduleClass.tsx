@@ -104,7 +104,7 @@ export function ScheduleClass() {
                 </SelectTrigger>
                 <SelectContent className="w-full min-w-[var(--radix-select-trigger-width)]">
                   {courses.map(course => (
-                    <SelectItem key={course.id} value={course.id} className="py-2.5">
+                    <SelectItem key={course.id} value={course.id} textValue={`${course.title} (${course.code})`} className="py-2.5">
                       <span className="font-semibold">{course.title}</span>
                       <span className="text-muted-foreground ml-2 text-xs">({course.code})</span>
                     </SelectItem>
@@ -150,7 +150,7 @@ export function ScheduleClass() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="w-full min-w-[var(--radix-select-trigger-width)]">
-                  <SelectItem value="Google Meet" className="py-3">
+                  <SelectItem value="Google Meet" textValue="Google Meet" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-green-600 shrink-0" />
                       <div>
@@ -159,7 +159,7 @@ export function ScheduleClass() {
                       </div>
                     </div>
                   </SelectItem>
-                  <SelectItem value="Teams" className="py-3">
+                  <SelectItem value="Teams" textValue="Microsoft Teams" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-blue-600 shrink-0" />
                       <div>
@@ -168,7 +168,7 @@ export function ScheduleClass() {
                       </div>
                     </div>
                   </SelectItem>
-                  <SelectItem value="Zoom" className="py-3">
+                  <SelectItem value="Zoom" textValue="Zoom" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-blue-500 shrink-0" />
                       <div>
