@@ -93,6 +93,8 @@ function generateMockData() {
     { id: '1', title: 'Introduction to Computer Science', code: 'CS101', studentsCount: 45, progress: 65, professorId: 'prof1' },
     { id: '2', title: 'Advanced Web Development', code: 'CS302', studentsCount: 32, progress: 40, professorId: 'prof1' },
     { id: '3', title: 'Data Structures and Algorithms', code: 'CS201', studentsCount: 50, progress: 85, professorId: 'prof1' },
+    { id: '4', title: 'Machine Learning Fundamentals', code: 'CS401', studentsCount: 28, progress: 30, professorId: 'prof1' },
+    { id: '5', title: 'Database Management Systems', code: 'CS303', studentsCount: 38, progress: 55, professorId: 'prof1' },
   ];
 
   const mockAssignments: Assignment[] = [
@@ -127,31 +129,93 @@ function generateMockData() {
         { id: 'a4q2', type: 'mcq', text: 'Which of these is a valid Python single-line comment?', points: 10, options: [{ id: 'a4q2o1', text: '// comment' }, { id: 'a4q2o2', text: '/* comment */' }, { id: 'a4q2o3', text: '# comment' }, { id: 'a4q2o4', text: '<!-- comment -->' }], correctOptionIds: ['a4q2o3'] },
       ]
     },
+    {
+      id: '5', courseId: '4', title: 'Linear Regression Quiz', description: 'Assess your understanding of linear regression, cost functions, and gradient descent.', deadline: new Date(Date.now() + 86400000 * 4).toISOString(), weightage: 15,
+      questions: [
+        { id: 'a5q1', type: 'mcq', text: 'Which loss function is used in linear regression?', points: 10, options: [{ id: 'a5q1o1', text: 'Cross-entropy loss' }, { id: 'a5q1o2', text: 'Hinge loss' }, { id: 'a5q1o3', text: 'Mean squared error' }, { id: 'a5q1o4', text: 'Log loss' }], correctOptionIds: ['a5q1o3'] },
+        { id: 'a5q2', type: 'mcq', text: 'What does the learning rate control in gradient descent?', points: 10, options: [{ id: 'a5q2o1', text: 'Number of iterations' }, { id: 'a5q2o2', text: 'Size of each parameter update step' }, { id: 'a5q2o3', text: 'Number of features' }, { id: 'a5q2o4', text: 'Output layer activation' }], correctOptionIds: ['a5q2o2'] },
+        { id: 'a5q3', type: 'multi', text: 'Which of the following are assumptions of linear regression?', points: 15, options: [{ id: 'a5q3o1', text: 'Linearity' }, { id: 'a5q3o2', text: 'Homoscedasticity' }, { id: 'a5q3o3', text: 'Normal distribution of errors' }, { id: 'a5q3o4', text: 'Multicollinearity is desired' }], correctOptionIds: ['a5q3o1', 'a5q3o2', 'a5q3o3'] },
+      ]
+    },
+    {
+      id: '6', courseId: '5', title: 'SQL Fundamentals', description: 'Test knowledge of SQL queries, joins, and relational database concepts.', deadline: new Date(Date.now() + 86400000 * 7).toISOString(), weightage: 10,
+      questions: [
+        { id: 'a6q1', type: 'mcq', text: 'Which SQL clause filters rows after GROUP BY?', points: 10, options: [{ id: 'a6q1o1', text: 'WHERE' }, { id: 'a6q1o2', text: 'HAVING' }, { id: 'a6q1o3', text: 'FILTER' }, { id: 'a6q1o4', text: 'LIMIT' }], correctOptionIds: ['a6q1o2'] },
+        { id: 'a6q2', type: 'mcq', text: 'What type of JOIN returns only matching rows from both tables?', points: 10, options: [{ id: 'a6q2o1', text: 'LEFT JOIN' }, { id: 'a6q2o2', text: 'RIGHT JOIN' }, { id: 'a6q2o3', text: 'INNER JOIN' }, { id: 'a6q2o4', text: 'FULL OUTER JOIN' }], correctOptionIds: ['a6q2o3'] },
+        { id: 'a6q3', type: 'mcq', text: 'Which constraint ensures unique values in a column?', points: 10, options: [{ id: 'a6q3o1', text: 'NOT NULL' }, { id: 'a6q3o2', text: 'PRIMARY KEY' }, { id: 'a6q3o3', text: 'UNIQUE' }, { id: 'a6q3o4', text: 'CHECK' }], correctOptionIds: ['a6q3o3'] },
+      ]
+    },
+    {
+      id: '7', courseId: '3', title: 'Sorting Algorithms', description: 'Analyze time and space complexity of classic sorting algorithms.', deadline: new Date(Date.now() - 86400000 * 5).toISOString(), weightage: 10,
+      questions: [
+        { id: 'a7q1', type: 'mcq', text: 'What is the average time complexity of QuickSort?', points: 10, options: [{ id: 'a7q1o1', text: 'O(n)' }, { id: 'a7q1o2', text: 'O(n log n)' }, { id: 'a7q1o3', text: 'O(n²)' }, { id: 'a7q1o4', text: 'O(log n)' }], correctOptionIds: ['a7q1o2'] },
+        { id: 'a7q2', type: 'mcq', text: 'Which sorting algorithm is stable by nature?', points: 10, options: [{ id: 'a7q2o1', text: 'QuickSort' }, { id: 'a7q2o2', text: 'HeapSort' }, { id: 'a7q2o3', text: 'MergeSort' }, { id: 'a7q2o4', text: 'Selection Sort' }], correctOptionIds: ['a7q2o3'] },
+        { id: 'a7q3', type: 'mcq', text: 'What is the worst-case time complexity of Bubble Sort?', points: 10, options: [{ id: 'a7q3o1', text: 'O(n)' }, { id: 'a7q3o2', text: 'O(n log n)' }, { id: 'a7q3o3', text: 'O(n²)' }, { id: 'a7q3o4', text: 'O(1)' }], correctOptionIds: ['a7q3o3'] },
+      ]
+    },
+    {
+      id: '8', courseId: '2', title: 'CSS Layout Challenge', description: 'PDF upload — Build a responsive webpage layout using Flexbox and Grid. Submit your HTML/CSS file.', deadline: new Date(Date.now() + 86400000 * 3).toISOString(), weightage: 20,
+    },
   ];
 
   const mockSubmissions: Submission[] = [
     { id: 's1', assignmentId: '3', studentId: 'stu1', studentName: 'Alex Carter', status: 'submitted', submittedAt: new Date(Date.now() - 3600000 * 5).toISOString() },
-    { id: 's2', assignmentId: '4', studentId: 'stu1', studentName: 'Alex Carter', status: 'graded', submittedAt: new Date(Date.now() - 86400000 * 11).toISOString(), marks: 100, feedback: 'Great job!' },
+    { id: 's2', assignmentId: '4', studentId: 'stu1', studentName: 'Alex Carter', status: 'graded', submittedAt: new Date(Date.now() - 86400000 * 11).toISOString(), marks: 100, feedback: 'Perfect score! Great understanding of basics.' },
+    { id: 's3', assignmentId: '7', studentId: 'stu2', studentName: 'Sarah Jenkins', status: 'graded', submittedAt: new Date(Date.now() - 86400000 * 6).toISOString(), marks: 85, feedback: 'Good work on complexity analysis.' },
+    { id: 's4', assignmentId: '3', studentId: 'stu2', studentName: 'Sarah Jenkins', status: 'graded', submittedAt: new Date(Date.now() - 86400000 * 2).toISOString(), marks: 90, feedback: 'Strong understanding of tree traversals.' },
+    { id: 's5', assignmentId: '7', studentId: 'stu3', studentName: 'Michael Chang', status: 'submitted', submittedAt: new Date(Date.now() - 86400000 * 5).toISOString() },
+    { id: 's6', assignmentId: '8', studentId: 'stu2', studentName: 'Sarah Jenkins', status: 'submitted', submittedAt: new Date(Date.now() - 3600000 * 8).toISOString() },
+    { id: 's7', assignmentId: '4', studentId: 'stu3', studentName: 'Michael Chang', status: 'graded', submittedAt: new Date(Date.now() - 86400000 * 12).toISOString(), marks: 75, feedback: 'Needs improvement on syntax concepts.' },
+    { id: 's8', assignmentId: '3', studentId: 'stu3', studentName: 'Michael Chang', status: 'submitted', submittedAt: new Date(Date.now() - 86400000 * 1).toISOString() },
   ];
 
   const mockClasses: ClassSession[] = [
     { id: '1', courseId: '1', title: 'Arrays and Strings', date: new Date(Date.now() + 3600000 * 2).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/abc-defg-hij' },
+    { id: '2', courseId: '2', title: 'React Hooks Deep Dive', date: new Date(Date.now() + 86400000 * 1).toISOString(), platform: 'Teams', link: 'https://teams.microsoft.com/l/meetup-join/web-dev-react' },
+    { id: '3', courseId: '3', title: 'Tree Traversal Techniques', date: new Date(Date.now() + 86400000 * 2).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/def-ghij-klm' },
+    { id: '4', courseId: '4', title: 'Intro to Neural Networks', date: new Date(Date.now() + 86400000 * 3).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/pqr-stuv-wxy' },
+    { id: '5', courseId: '5', title: 'Normalization & Schema Design', date: new Date(Date.now() + 86400000 * 4).toISOString(), platform: 'Teams', link: 'https://teams.microsoft.com/l/meetup-join/dbms-schema' },
+    { id: '6', courseId: '1', title: 'Recursion & Backtracking', date: new Date(Date.now() - 86400000 * 3).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/nop-qrst-uvw' },
+    { id: '7', courseId: '2', title: 'State Management with Redux', date: new Date(Date.now() - 86400000 * 7).toISOString(), platform: 'Teams', link: 'https://teams.microsoft.com/l/meetup-join/redux-class' },
+    { id: '8', courseId: '3', title: 'Graph Algorithms Overview', date: new Date(Date.now() - 86400000 * 2).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/gph-alg-ovr' },
+    { id: '9', courseId: '4', title: 'Feature Engineering Workshop', date: new Date(Date.now() - 86400000 * 5).toISOString(), platform: 'Google Meet', link: 'https://meet.google.com/ml-feat-eng' },
+    { id: '10', courseId: '5', title: 'SQL Joins & Subqueries', date: new Date(Date.now() - 86400000 * 4).toISOString(), platform: 'Teams', link: 'https://teams.microsoft.com/l/meetup-join/sql-joins' },
   ];
 
   const mockAttendance: AttendanceRecord[] = [
-    { id: '1', courseId: '1', studentId: 'stu1', studentName: 'Alex Carter', date: new Date().toISOString(), joinTime: '09:00 AM', leaveTime: '10:30 AM', status: 'Present', duration: '1h 30m' },
-    { id: '2', courseId: '1', studentId: 'stu2', studentName: 'Sarah Jenkins', date: new Date().toISOString(), joinTime: '09:15 AM', leaveTime: '10:30 AM', status: 'Present', duration: '1h 15m' },
-    { id: '3', courseId: '2', studentId: 'stu3', studentName: 'Michael Chang', date: new Date().toISOString(), joinTime: '-', leaveTime: '-', status: 'Absent', duration: '0h 0m' },
+    { id: 'at1', courseId: '1', studentId: 'stu1', studentName: 'Alex Carter', date: new Date(Date.now() - 86400000 * 3).toISOString(), joinTime: '09:00 AM', leaveTime: '10:30 AM', status: 'Present', duration: '1h 30m' },
+    { id: 'at2', courseId: '1', studentId: 'stu2', studentName: 'Sarah Jenkins', date: new Date(Date.now() - 86400000 * 3).toISOString(), joinTime: '09:05 AM', leaveTime: '10:30 AM', status: 'Present', duration: '1h 25m' },
+    { id: 'at3', courseId: '1', studentId: 'stu3', studentName: 'Michael Chang', date: new Date(Date.now() - 86400000 * 3).toISOString(), joinTime: '-', leaveTime: '-', status: 'Absent', duration: '0h 0m' },
+    { id: 'at4', courseId: '2', studentId: 'stu1', studentName: 'Alex Carter', date: new Date(Date.now() - 86400000 * 7).toISOString(), joinTime: '02:00 PM', leaveTime: '03:30 PM', status: 'Present', duration: '1h 30m' },
+    { id: 'at5', courseId: '2', studentId: 'stu2', studentName: 'Sarah Jenkins', date: new Date(Date.now() - 86400000 * 7).toISOString(), joinTime: '02:10 PM', leaveTime: '03:30 PM', status: 'Present', duration: '1h 20m' },
+    { id: 'at6', courseId: '2', studentId: 'stu4', studentName: 'Priya Sharma', date: new Date(Date.now() - 86400000 * 7).toISOString(), joinTime: '02:15 PM', leaveTime: '03:00 PM', status: 'Present', duration: '0h 45m' },
+    { id: 'at7', courseId: '3', studentId: 'stu1', studentName: 'Alex Carter', date: new Date(Date.now() - 86400000 * 2).toISOString(), joinTime: '-', leaveTime: '-', status: 'Absent', duration: '0h 0m' },
+    { id: 'at8', courseId: '3', studentId: 'stu2', studentName: 'Sarah Jenkins', date: new Date(Date.now() - 86400000 * 2).toISOString(), joinTime: '11:00 AM', leaveTime: '12:30 PM', status: 'Present', duration: '1h 30m' },
+    { id: 'at9', courseId: '3', studentId: 'stu3', studentName: 'Michael Chang', date: new Date(Date.now() - 86400000 * 2).toISOString(), joinTime: '11:10 AM', leaveTime: '12:30 PM', status: 'Present', duration: '1h 20m' },
+    { id: 'at10', courseId: '4', studentId: 'stu1', studentName: 'Alex Carter', date: new Date(Date.now() - 86400000 * 5).toISOString(), joinTime: '03:00 PM', leaveTime: '04:30 PM', status: 'Present', duration: '1h 30m' },
+    { id: 'at11', courseId: '4', studentId: 'stu3', studentName: 'Michael Chang', date: new Date(Date.now() - 86400000 * 5).toISOString(), joinTime: '03:05 PM', leaveTime: '04:15 PM', status: 'Present', duration: '1h 10m' },
+    { id: 'at12', courseId: '4', studentId: 'stu4', studentName: 'Priya Sharma', date: new Date(Date.now() - 86400000 * 5).toISOString(), joinTime: '-', leaveTime: '-', status: 'Absent', duration: '0h 0m' },
+    { id: 'at13', courseId: '5', studentId: 'stu2', studentName: 'Sarah Jenkins', date: new Date(Date.now() - 86400000 * 4).toISOString(), joinTime: '10:00 AM', leaveTime: '11:30 AM', status: 'Present', duration: '1h 30m' },
+    { id: 'at14', courseId: '5', studentId: 'stu3', studentName: 'Michael Chang', date: new Date(Date.now() - 86400000 * 4).toISOString(), joinTime: '-', leaveTime: '-', status: 'Absent', duration: '0h 0m' },
+    { id: 'at15', courseId: '5', studentId: 'stu4', studentName: 'Priya Sharma', date: new Date(Date.now() - 86400000 * 4).toISOString(), joinTime: '10:05 AM', leaveTime: '11:30 AM', status: 'Present', duration: '1h 25m' },
   ];
 
   const mockAnnouncements: Announcement[] = [
-    { id: '1', courseId: '1', title: 'Welcome to CS101!', content: 'Please review the syllabus before our first class.', date: new Date(Date.now() - 86400000 * 5).toISOString(), authorName: 'Prof. Alan Turing' },
-    { id: '2', courseId: '1', title: 'Assignment 1 Released', content: 'Python Basics assignment is now live. Due in 2 days.', date: new Date(Date.now() - 3600000 * 12).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann1', courseId: '1', title: 'Welcome to CS101!', content: 'Please review the syllabus before our first class. Office hours are Tuesdays 3–5 PM at Room 204.', date: new Date(Date.now() - 86400000 * 14).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann2', courseId: '1', title: 'Python Basics Assignment Released', content: 'Assignment 1 is now live on the portal. It covers Python syntax, data types, and control flow. Due in 2 days — start early!', date: new Date(Date.now() - 3600000 * 12).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann3', courseId: '2', title: 'Project Guidelines Updated', content: 'The final project rubric has been updated. Please re-read Section 4 on code quality expectations. Pair programming is encouraged.', date: new Date(Date.now() - 86400000 * 5).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann4', courseId: '2', title: 'Guest Lecture — Next Wednesday', content: 'We have a special guest from Google joining us next Wednesday to talk about large-scale React applications. Attendance is mandatory.', date: new Date(Date.now() - 86400000 * 2).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann5', courseId: '3', title: 'Midterm Schedule Confirmed', content: 'The midterm exam will be held on Friday at 10 AM in Hall B. Topics: Arrays, Linked Lists, Trees, and Graphs. Bring your student ID.', date: new Date(Date.now() - 86400000 * 8).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann6', courseId: '3', title: 'Extra Office Hours This Week', content: 'Given the upcoming midterm, I will be holding additional office hours on Thursday from 2–6 PM. Come with questions on any DSA topic.', date: new Date(Date.now() - 86400000 * 1).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann7', courseId: '4', title: 'Lab Environment Setup Guide', content: 'Please install Anaconda and set up a Python 3.10 environment before our next session. The setup guide is pinned on the LMS portal.', date: new Date(Date.now() - 86400000 * 6).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann8', courseId: '5', title: 'Group Project Teams Announced', content: 'Project groups have been finalized. Check the shared spreadsheet for your team assignment. First checkpoint is due in 10 days.', date: new Date(Date.now() - 86400000 * 3).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann9', courseId: '4', title: 'Assignment 5 Deadline Extended', content: 'Due to the library system outage, the Linear Regression assignment deadline has been extended by 48 hours. New deadline: this Friday.', date: new Date(Date.now() - 3600000 * 6).toISOString(), authorName: 'Prof. Alan Turing' },
+    { id: 'ann10', courseId: '1', title: 'Graded Papers Returned', content: 'Hello World Concepts assignments have been graded. Check your scores in the Grades section. Feedback has been added individually.', date: new Date(Date.now() - 86400000 * 9).toISOString(), authorName: 'Prof. Alan Turing' },
   ];
 
   const mockQuizzes: Quiz[] = [
     {
-      id: 'q1', courseId: '1', title: 'CS101 Midterm: Python Fundamentals', type: 'advanced',
+      id: 'q1', courseId: '1', title: 'CS101 Midterm — Python Fundamentals', type: 'advanced',
       timeLimitMinutes: 30, startTime: new Date(Date.now() - 3600000 * 2).toISOString(), endTime: new Date(Date.now() + 86400000 * 3).toISOString(),
       attemptsAllowed: 1, shuffleQuestions: true, shuffleOptions: false, showResultsAfter: 'immediately',
       createdBy: 'prof1', createdAt: new Date(Date.now() - 86400000).toISOString(),
@@ -174,14 +238,58 @@ function generateMockData() {
         { id: 'qq8', type: 'mcq', text: 'Which declares a constant in JS?', points: 10, options: [{ id: 'o29', text: 'var' }, { id: 'o30', text: 'let' }, { id: 'o31', text: 'const' }, { id: 'o32', text: 'static' }], correctOptionIds: ['o31'] },
       ],
     },
+    {
+      id: 'q3', courseId: '3', title: 'DSA Sprint — Graphs & Trees', type: 'advanced',
+      timeLimitMinutes: 25, startTime: new Date(Date.now() + 86400000 * 2).toISOString(), endTime: new Date(Date.now() + 86400000 * 5).toISOString(),
+      attemptsAllowed: 1, shuffleQuestions: false, shuffleOptions: true, showResultsAfter: 'after_end',
+      createdBy: 'prof1', createdAt: new Date(Date.now() - 86400000 * 1).toISOString(),
+      questions: [
+        { id: 'qq9', type: 'mcq', text: 'What data structure does BFS use internally?', points: 10, options: [{ id: 'o33', text: 'Stack' }, { id: 'o34', text: 'Queue' }, { id: 'o35', text: 'Heap' }, { id: 'o36', text: 'Set' }], correctOptionIds: ['o34'] },
+        { id: 'qq10', type: 'mcq', text: 'What is the space complexity of DFS on a graph with V vertices?', points: 10, options: [{ id: 'o37', text: 'O(1)' }, { id: 'o38', text: 'O(V)' }, { id: 'o39', text: 'O(V²)' }, { id: 'o40', text: 'O(log V)' }], correctOptionIds: ['o38'] },
+        { id: 'qq11', type: 'multi', text: 'Which algorithms are used for finding shortest paths?', points: 15, options: [{ id: 'o41', text: "Dijkstra's" }, { id: 'o42', text: 'Prim\'s' }, { id: 'o43', text: 'Bellman-Ford' }, { id: 'o44', text: 'Kruskal\'s' }], correctOptionIds: ['o41', 'o43'] },
+        { id: 'qq12', type: 'mcq', text: 'What is the height of a balanced binary tree with n nodes?', points: 10, options: [{ id: 'o45', text: 'O(n)' }, { id: 'o46', text: 'O(log n)' }, { id: 'o47', text: 'O(n²)' }, { id: 'o48', text: 'O(1)' }], correctOptionIds: ['o46'] },
+      ],
+    },
+    {
+      id: 'q4', courseId: '4', title: 'ML Basics — Supervised Learning', type: 'simple',
+      timeLimitMinutes: 20, startTime: new Date(Date.now() - 86400000 * 10).toISOString(), endTime: new Date(Date.now() - 86400000 * 7).toISOString(),
+      attemptsAllowed: 1, shuffleQuestions: false, shuffleOptions: false, showResultsAfter: 'immediately',
+      createdBy: 'prof1', createdAt: new Date(Date.now() - 86400000 * 11).toISOString(),
+      questions: [
+        { id: 'qq13', type: 'mcq', text: 'What is overfitting?', points: 10, options: [{ id: 'o49', text: 'Model performs well on training data but poorly on test data' }, { id: 'o50', text: 'Model performs poorly on both' }, { id: 'o51', text: 'Model performs well on test data only' }, { id: 'o52', text: 'Model has too few parameters' }], correctOptionIds: ['o49'] },
+        { id: 'qq14', type: 'mcq', text: 'Which technique helps prevent overfitting?', points: 10, options: [{ id: 'o53', text: 'Increasing model complexity' }, { id: 'o54', text: 'Regularization' }, { id: 'o55', text: 'Removing test data' }, { id: 'o56', text: 'Using fewer epochs' }], correctOptionIds: ['o54'] },
+        { id: 'qq15', type: 'mcq', text: 'Which of the following is a classification algorithm?', points: 10, options: [{ id: 'o57', text: 'Linear Regression' }, { id: 'o58', text: 'K-Means Clustering' }, { id: 'o59', text: 'Logistic Regression' }, { id: 'o60', text: 'PCA' }], correctOptionIds: ['o59'] },
+      ],
+    },
+    {
+      id: 'q5', courseId: '5', title: 'DBMS Fundamentals — Live Quiz', type: 'simple',
+      timeLimitMinutes: 20, startTime: new Date(Date.now() - 3600000).toISOString(), endTime: new Date(Date.now() + 3600000 * 2).toISOString(),
+      attemptsAllowed: 1, shuffleQuestions: true, shuffleOptions: false, showResultsAfter: 'after_end',
+      createdBy: 'prof1', createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+      questions: [
+        { id: 'qq16', type: 'mcq', text: 'What does ACID stand for in database transactions?', points: 10, options: [{ id: 'o61', text: 'Atomicity, Consistency, Isolation, Durability' }, { id: 'o62', text: 'Access, Control, Integrity, Data' }, { id: 'o63', text: 'Atomicity, Concurrency, Index, Durability' }, { id: 'o64', text: 'None of the above' }], correctOptionIds: ['o61'] },
+        { id: 'qq17', type: 'mcq', text: 'What is a foreign key?', points: 10, options: [{ id: 'o65', text: 'A key that uniquely identifies a record' }, { id: 'o66', text: 'A key that references the primary key of another table' }, { id: 'o67', text: 'A composite key' }, { id: 'o68', text: 'An index key' }], correctOptionIds: ['o66'] },
+        { id: 'qq18', type: 'mcq', text: 'Which normal form eliminates partial dependencies?', points: 10, options: [{ id: 'o69', text: '1NF' }, { id: 'o70', text: '2NF' }, { id: 'o71', text: '3NF' }, { id: 'o72', text: 'BCNF' }], correctOptionIds: ['o70'] },
+      ],
+    },
   ];
 
   const mockQuizAttempts: QuizAttempt[] = [
     { id: 'qa1', quizId: 'q2', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'qq6': ['o22'], 'qq7': ['o25'], 'qq8': ['o31'] }, startedAt: new Date(Date.now() - 86400000 - 3600000).toISOString(), submittedAt: new Date(Date.now() - 86400000).toISOString(), score: 20, totalPoints: 30, status: 'submitted' },
+    { id: 'qa2', quizId: 'q4', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'qq13': ['o49'], 'qq14': ['o54'], 'qq15': ['o59'] }, startedAt: new Date(Date.now() - 86400000 * 9).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 9).toISOString(), score: 30, totalPoints: 30, status: 'submitted' },
+    { id: 'qa3', quizId: 'q2', studentId: 'stu2', studentName: 'Sarah Jenkins', answers: { 'qq6': ['o22'], 'qq7': ['o27'], 'qq8': ['o31'] }, startedAt: new Date(Date.now() - 86400000 - 2700000).toISOString(), submittedAt: new Date(Date.now() - 86400000).toISOString(), score: 30, totalPoints: 30, status: 'submitted' },
+    { id: 'qa4', quizId: 'q4', studentId: 'stu2', studentName: 'Sarah Jenkins', answers: { 'qq13': ['o49'], 'qq14': ['o53'], 'qq15': ['o59'] }, startedAt: new Date(Date.now() - 86400000 * 9).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 9).toISOString(), score: 20, totalPoints: 30, status: 'submitted' },
+    { id: 'qa5', quizId: 'q4', studentId: 'stu3', studentName: 'Michael Chang', answers: { 'qq13': ['o50'], 'qq14': ['o54'], 'qq15': ['o57'] }, startedAt: new Date(Date.now() - 86400000 * 8).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 8).toISOString(), score: 10, totalPoints: 30, status: 'submitted' },
+    { id: 'qa6', quizId: 'q2', studentId: 'stu3', studentName: 'Michael Chang', answers: { 'qq6': ['o21'], 'qq7': ['o27'], 'qq8': ['o31'] }, startedAt: new Date(Date.now() - 86400000).toISOString(), submittedAt: new Date(Date.now() - 86400000).toISOString(), score: 20, totalPoints: 30, status: 'submitted' },
   ];
 
   const mockAssignmentAttempts: AssignmentAttempt[] = [
     { id: 'aa1', assignmentId: '4', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'a4q1': ['a4q1o3'], 'a4q2': ['a4q2o3'] }, startedAt: new Date(Date.now() - 86400000 * 11 - 3600000).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 11).toISOString(), score: 20, totalPoints: 20, status: 'submitted' },
+    { id: 'aa2', assignmentId: '1', studentId: 'stu2', studentName: 'Sarah Jenkins', answers: { 'a1q1': ['a1q1o1'], 'a1q2': ['a1q2o3'], 'a1q3': ['a1q3o3'] }, startedAt: new Date(Date.now() - 3600000 * 4).toISOString(), submittedAt: new Date(Date.now() - 3600000 * 3).toISOString(), score: 30, totalPoints: 30, status: 'submitted' },
+    { id: 'aa3', assignmentId: '2', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'a2q1': ['a2q1o2'], 'a2q2': ['a2q2o1'], 'a2q3': ['a2q3o1'] }, startedAt: new Date(Date.now() - 3600000 * 8).toISOString(), submittedAt: new Date(Date.now() - 3600000 * 7).toISOString(), score: 20, totalPoints: 30, status: 'submitted' },
+    { id: 'aa4', assignmentId: '7', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'a7q1': ['a7q1o2'], 'a7q2': ['a7q2o3'], 'a7q3': ['a7q3o3'] }, startedAt: new Date(Date.now() - 86400000 * 6).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 6).toISOString(), score: 30, totalPoints: 30, status: 'submitted' },
+    { id: 'aa5', assignmentId: '4', studentId: 'stu2', studentName: 'Sarah Jenkins', answers: { 'a4q1': ['a4q1o3'], 'a4q2': ['a4q2o1'] }, startedAt: new Date(Date.now() - 86400000 * 10).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 10).toISOString(), score: 10, totalPoints: 20, status: 'submitted' },
+    { id: 'aa6', assignmentId: '3', studentId: 'stu1', studentName: 'Alex Carter', answers: { 'a3q1': ['a3q1o2'], 'a3q2': ['a3q2o3'], 'a3q3': ['a3q3o2'] }, startedAt: new Date(Date.now() - 86400000 * 2).toISOString(), submittedAt: new Date(Date.now() - 86400000 * 2).toISOString(), score: 30, totalPoints: 30, status: 'submitted' },
   ];
 
   return { mockCourses, mockAssignments, mockSubmissions, mockClasses, mockAttendance, mockAnnouncements, mockQuizzes, mockQuizAttempts, mockAssignmentAttempts };
@@ -197,7 +305,7 @@ export const useStore = create<LmsStore>()(
         quizzes: mockQuizzes, quizAttempts: mockQuizAttempts,
         assignmentAttempts: mockAssignmentAttempts, isAttendanceApproved: false,
 
-        login: (role) => set({ user: { id: role === 'professor' ? 'prof1' : 'stu1', name: role === 'professor' ? 'Prof. Alan Turing' : 'Alex Carter', email: role === 'professor' ? 'alan@university.edu' : 'alex@student.edu', role, avatar: role === 'professor' ? 'https://api.dicebear.com/7.x/notionists/svg?seed=alan' : 'https://api.dicebear.com/7.x/notionists/svg?seed=alex' } }),
+        login: (role) => set({ user: { id: role === 'professor' ? 'prof1' : 'stu1', name: role === 'professor' ? 'Prof. Alan Turing' : 'Alex Carter', email: role === 'professor' ? 'alan@iith.ac.in' : 'alex@student.iith.ac.in', role, avatar: role === 'professor' ? 'https://api.dicebear.com/7.x/notionists/svg?seed=alan' : 'https://api.dicebear.com/7.x/notionists/svg?seed=alex' } }),
         logout: () => set({ user: null }),
         createCourse: (c) => set((s) => ({ courses: [...s.courses, c] })),
         createAssignment: (a) => set((s) => ({ assignments: [a, ...s.assignments] })),
@@ -244,6 +352,9 @@ export const useStore = create<LmsStore>()(
         }),
       };
     },
-    { name: 'lms-store-v5' }
+    {
+      name: 'lms-store-v6',
+      // Reset persisted state so new seed data loads fresh
+    }
   )
 );
