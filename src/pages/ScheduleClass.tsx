@@ -100,11 +100,18 @@ export function ScheduleClass() {
               <Label className="text-xs font-bold uppercase text-muted-foreground tracking-wider">Select Target Course</Label>
               <Select value={courseId} onValueChange={setCourseId}>
                 <SelectTrigger className="h-12 bg-muted/50 border-border w-full">
-                  <SelectValue placeholder="Choose a course for this class" />
+                  {courseId ? (
+                    <span className="truncate text-sm font-medium">
+                      {courses.find(c => c.id === courseId)?.title}
+                      <span className="text-muted-foreground ml-2 text-xs">({courses.find(c => c.id === courseId)?.code})</span>
+                    </span>
+                  ) : (
+                    <span className="text-muted-foreground text-sm">Choose a course for this class</span>
+                  )}
                 </SelectTrigger>
                 <SelectContent className="w-full min-w-[var(--radix-select-trigger-width)]">
                   {courses.map(course => (
-                    <SelectItem key={course.id} value={course.id} textValue={`${course.title} (${course.code})`} className="py-2.5">
+                    <SelectItem key={course.id} value={course.id} className="py-2.5">
                       <span className="font-semibold">{course.title}</span>
                       <span className="text-muted-foreground ml-2 text-xs">({course.code})</span>
                     </SelectItem>
@@ -147,10 +154,13 @@ export function ScheduleClass() {
               <Label className="text-xs font-bold uppercase text-muted-foreground tracking-wider">Delivery Platform</Label>
               <Select value={platform} onValueChange={setPlatform}>
                 <SelectTrigger className="h-12 bg-muted/50 border-border w-full">
-                  <SelectValue />
+                  <span className="flex items-center gap-2 text-sm font-medium">
+                    <Video className={`w-4 h-4 shrink-0 ${platform === 'Google Meet' ? 'text-green-600' : 'text-blue-600'}`} />
+                    {platform === 'Google Meet' ? 'Google Meet' : platform === 'Teams' ? 'Microsoft Teams' : 'Zoom'}
+                  </span>
                 </SelectTrigger>
                 <SelectContent className="w-full min-w-[var(--radix-select-trigger-width)]">
-                  <SelectItem value="Google Meet" textValue="Google Meet" className="py-3">
+                  <SelectItem value="Google Meet" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-green-600 shrink-0" />
                       <div>
@@ -159,7 +169,7 @@ export function ScheduleClass() {
                       </div>
                     </div>
                   </SelectItem>
-                  <SelectItem value="Teams" textValue="Microsoft Teams" className="py-3">
+                  <SelectItem value="Teams" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-blue-600 shrink-0" />
                       <div>
@@ -168,7 +178,7 @@ export function ScheduleClass() {
                       </div>
                     </div>
                   </SelectItem>
-                  <SelectItem value="Zoom" textValue="Zoom" className="py-3">
+                  <SelectItem value="Zoom" className="py-3">
                     <div className="flex items-center gap-2">
                       <Video className="w-4 h-4 text-blue-500 shrink-0" />
                       <div>
