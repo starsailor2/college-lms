@@ -5,14 +5,17 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useStore, Role } from "@/store"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Sparkles } from "lucide-react"
+import { Navigate, useNavigate } from "react-router-dom"
 
 export function Login() {
   const [role, setRole] = useState<Role>('student')
   const [email, setEmail] = useState('')
-  const { login } = useStore()
+  const { login, user } = useStore()
   const navigate = useNavigate()
+
+  if (user) {
+    return <Navigate to="/dashboard" replace />
+  }
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
